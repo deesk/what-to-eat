@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <header>
+    <div class="logo">
+      <h1> what to eat!! </h1>
+      <h2> Best price guaranteed... </h2>
+    </div>
+    <div class="account">
+      <ul>
+        <li> <a href="/signup"> Sign up </a> </li>
+        <li> <a href="/login"> Log in </a> </li>
+      </ul>
+    </div>
+  </header>
+
+<div class="search-area">
+  <form action="/search">
+    <input class="input-keyword" type="text" name="keyword" placeholder="what you feel like today..">
+    <input class="input-price" type="text" name="price" placeholder="$$budget$$(optional)">
+    <button class="btn-search">Search</button>
+  </form>
+</div>
+  <div class="special-today">
+    <h2> Today's Special </h2>
+    <% if logged_in? %>
+      <h2> 10% discount </h2>
+    <% end %>
+    <div class="specials">
+      <% @specials.each do |item| %>
+        <div class="special-item">
+          <img src="<%= item.picture %>">
+          <div class="specials-info">
+            <h5> $<%= item.price %> </h3>
+            <h4> <%= item.name %> </h3>
+            <h6> <%= item.info %> </h3>
+            <h5> <%= item.store.name %> </h5>
+            <h6> <%= item.store.address %> </h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
